@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //運算子: 算數運算子，賦值運算子，比較運算子，邏輯運算子，位元運算子，一元運算子和其他。
+      //算數運算子
+      var num = 0;
+      num = num + 2; //2
+      num = num * 3; //6
+      num = num / 2; //3
+      num++; //4
+      num--; //3
+
+      //賦值運算子
+      num += 1; //4
+      num -= 2; //2
+      num *= 3; //6
+      num /= 2; //3
+      num %= 3; //0
+
+      //比較運算子
+      console.log("num == 1 : " + (num == 1)); //false
+      console.log("num === 1 : " + (num === 1)); //false
+      console.log("num != 1 : " + (num != 1)); //true
+      console.log("num > 1 : " + (num > 1)); //false
+      console.log("num < 1 : " + (num < 1)); //true
+      console.log("num >= 1 : " + (num >= 1)); //false
+      console.log("num <= 1 : " + (num <= 1)); //true
+
+      //邏輯運算子
+      console.log("true && false " + (true && false)); //false
+      console.log("true || false " + (true || false)); //true
+      console.log("!true : " + !true); //false
+
+      //位元運算子
+      console.log("5 & 1:", 5 & 1); //1
+      console.log("5 | 1:", 5 | 1); //5
+      console.log("~ 5 :", ~5); //10
+      console.log("5 ^ 1:", 5 ^ 1); //4
+      console.log("5 << 1:", 5 << 1); //-6
+      console.log("5 >> 1:", 5 >> 1); //2
+
+      //typeof 運算子
+      console.log("typeof num:", typeof num); //number
+      console.log("typeof Packet:", typeof "Packet"); //string
+      console.log("typeof true:", typeof true); //boolean
+      console.log("typeof [1,2,3]:", typeof [1, 2, 3]); //object
+      console.log("typeof {name:John}:", typeof { name: "John" }); //object
+
+      //delete 運算子 : 刪除物件的屬性
+      var myObj = { name: "John", age: 21 };
+      delete myObj.age;
+      console.log(myObj); //{name: "John"}
+
+      //真值和假值
+      function testTruthy(val) {
+        return val ? console.log("truthy") : console.log("falsy");
+      }
+      testTruthy(true); //true
+      testTruthy(false); //false
+      testTruthy(new Boolean(false)); //true(物件始終為true)
+
+      testTruthy(""); //false
+      testTruthy("Packet"); //true
+      testTruthy(new String("")); //true(物件始終為true)
+
+      testTruthy(1); //true
+      testTruthy(-1); //true
+      testTruthy(NaN); //false
+      testTruthy(new Number(NaN)); //true(物件始終為true)
+
+      testTruthy({}); //true(物件始終為true)
+      var obj = { name: "John" };
+      testTruthy(obj); //true
+      testTruthy(obj.name); //true
+      testTruthy(obj.age); //false(age不存在)
+
+      //相等運算子
+      console.log("packt" ? true : false);
+      console.log("packet" == true); //布林值會轉成number=>toNumber(ture) = 1。字串也會變數字toNumber('packet')=NaN。
+      console.log("packet" == false); //布林值會轉成number=>toNumber(false) = 0。字串也會變數字toNumber('packet')=NaN。
+      console.log("packt" === true); //false
+      console.log("packt" === "packt"); //true
+      //全等運算子
+      console.log("全等運算子");
+      var person1 = { name: "John" };
+      var person2 = { name: "John" };
+      console.log(person1 === person2); //false，不同的物件。
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //變數的範圍: 函數中能存取到的變數。區域變數和全域變數。
+      //盡量少用全域變數 : 全域變數越多，程式品質越差。
+      var myVariable = "global";
+      myOtherVariable = "global";
+
+      function myFunction() {
+        var myVariable = "local";
+        return myVariable;
+      }
+      function myOtherFunction() {
+        myOtherVariable = "local";
+        return myOtherVariable;
+      }
+      console.log(myVariable); //global
+      console.log(myFunction()); //local
+      console.log(myOtherVariable); //global
+      console.log(myOtherFunction()); //local
+      console.log(myOtherVariable); //local
+    </script>
+  </body>
+</html>
