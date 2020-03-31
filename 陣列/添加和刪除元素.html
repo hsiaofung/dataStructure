@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      //添加元素
+      numbers[numbers.length] = 10;
+      //push
+      numbers.push(11);
+      numbers.push(12, 13);
+      console.log(numbers); //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+      //插入到陣列的首位
+      function insertToFirst(n) {
+        for (var i = numbers.length; i >= 0; i--) {
+          numbers[i] = numbers[i - 1];
+        }
+        numbers[0] = n;
+      }
+      insertToFirst(-1);
+      console.log(numbers); //[-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+      //unshift : 插入到陣列的首位
+      numbers.unshift(-2);
+      console.log(numbers); //[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+      //刪除元素
+      numbers.pop();
+      console.log(numbers); //[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      //移除陣列的第一個元素:
+      //使用for迴圈只是覆蓋前一個元素的值，陣列長度並沒有減少。
+      for (let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i + 1];
+      }
+      console.log(numbers); //[-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+      //shift : 移除陣列的第一個元素
+      //真正移除陣列的第一個元素。陣列長度變短。
+      numbers.shift();
+      console.log(numbers); //[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, undefined]
+      //在陣列的任意處新增和刪除元素
+      //刪除: splice(位置(索引)，刪除幾個)
+      numbers.splice(5, 3);
+      console.log(numbers); //[0, 1, 2, 3, 4, 8, 9, 10, 11, 12, undefined]
+      //新增: splice(位置(索引)，刪除幾個，添加到陣列的元素)
+      numbers.splice(5, 0, 2, 3, 4, 5, 6);
+      console.log(numbers); //[0, 1, 2, 3, 4, 2, 3, 4, 5, 6, 9, 10, 11, 12, undefined]
+    </script>
+  </body>
+</html>

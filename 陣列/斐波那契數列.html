@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //斐波那契數列: 第一個數字是1，第二個數字是2，從第三項開始，每一項都等於前兩項之和。
+      var fibonacci = [];
+      fibonacci[1] = 1;
+      fibonacci[2] = 2;
+
+      //計算斐波那契數列
+      function sum(n) {
+        for (let i = 3; i < n; i++) {
+          fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+      }
+      sum(20);
+      console.log(fibonacci);
+    </script>
+  </body>
+</html>

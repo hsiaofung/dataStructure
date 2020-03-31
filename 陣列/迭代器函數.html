@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //有一個陣列，它的值1~15，如果陣列裡的元素可以被2整除(偶數)，函數就返回true，否則返回false
+      var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+      //every: 迭代陣列中的每一個元素，直到false。
+      var isEven = function(x) {
+        return x.every(value => value % 2 === 0);
+      };
+      console.log(isEven(numbers)); //false
+
+      //every 的第2種寫法。
+      var isEven2 = function(x) {
+        return x % 2 === 0;
+      };
+      console.log(numbers.every(isEven2)); //false
+
+      //some: 迭代陣列中的每一個元素，直到true。
+      //把函數和some，every 解耦合，比較有彈性。函數不變，只要改some or every 即可。
+      console.log(numbers.some(isEven2)); //true
+
+      //forEach : 和for迴圈的結果相同。
+      numbers.forEach(x => {
+        console.log(x % 2 === 0); //[false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+      });
+
+      //map : 返回新陣列，返回函數執行的結果
+      var myMap = numbers.map(isEven2);
+      console.log(myMap); //[false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+
+      //filter : 返回新陣列，由使函數返回true的元素組成。
+      var evenNumbers = numbers.filter(isEven2);
+      console.log(evenNumbers); //[2,4,6,8,10,12,14]
+
+      //reduce : 對陣列的元素求和。
+      var sumOfNumbers = numbers.reduce(function(previous, current, index) {
+        return previous + current;
+      });
+      console.log(sumOfNumbers); //120
+    </script>
+  </body>
+</html>
