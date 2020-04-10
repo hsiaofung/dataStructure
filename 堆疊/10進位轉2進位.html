@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Stack() {
+            var array = [];
+            this.push = (item) => array.push(item)
+            this.pop = () => array.pop()
+            this.peek = () => array[array.length - 1]
+            this.clear = () => array = [];
+            this.size = () => array.length;
+            this.isEmpty = () => array.length == 0
+        }
+        var stack = new Stack();
+    </script>
+</body>
+
+</html>
