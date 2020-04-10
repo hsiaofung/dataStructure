@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Stack() {
+            var array = [];
+            this.push = function (item) {
+                array.push(item);
+            }
+            this.pop = function () {
+                return array.pop();
+            }
+            this.isEmpty = () => {
+                return array.length == 0
+            }
+            this.clear = () => {
+                array = []
+            }
+            this.peek = () => {
+                return array[array.length - 1];
+            }
+            this.size = () => {
+                return array.length
+            }
+            this.print = () => {
+                console.log(array.toString());
+            }
+        }
+        var stack = new Stack();
+        console.log(stack.isEmpty()); //true
+        stack.push("John");
+        stack.print(); //John
+        stack.push("Joe");
+        stack.push("Ane");
+        stack.push("Lee");
+        stack.print(); //John,Joe,Ane,Lee
+        var element = stack.pop();
+        console.log(element); //Lee
+        stack.print(); //John,Joe,Ane
+        console.log(stack.isEmpty()); //false
+        console.log(stack.size()); //3
+        console.log(stack.peek()); //Ane
+        console.log(stack.clear());
+        stack.print(); //[]
+    </script>
+</body>
+
+</html>
