@@ -9,6 +9,11 @@
 
 <body>
     <script>
+        /****************
+         * 十進制轉二進制
+         *          
+         ****************/
+        //建立堆疊 
         function Stack() {
             var array = [];
             this.push = (item) => array.push(item)
@@ -19,6 +24,25 @@
             this.isEmpty = () => array.length == 0
         }
         var stack = new Stack();
+
+        //十進制轉二進制
+        function decimalToBinary(decimal) {
+            var decimalNum = decimal;
+            var binaryString = "";
+
+            while (decimalNum >= 1) {
+                var n = decimalNum % 2;
+                stack.push(n) //將餘數放入堆疊
+                decimalNum = Math.floor(decimalNum / 2); //捨去後的整數
+            }
+
+            while (stack.size() > 0) {
+                binaryString += stack.pop()
+            }
+
+            return binaryString;
+        }
+        console.log(decimalToBinary(11));
     </script>
 </body>
 

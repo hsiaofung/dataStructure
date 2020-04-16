@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Stack() {
+            var array = [];
+            this.push = (item) => array.push(item)
+            this.pop = () => array.pop()
+            this.peek = () => array[array.length - 1]
+            this.clear = () => array = [];
+            this.size = () => array.length;
+            this.isEmpty = () => array.length == 0
+        }
+
+
+        function numberToBinary(n, base) {
+            var stack = new Stack();
+            var remainder, baseString = "";
+            //技巧: 用陣列取代 if else
+            var digits = "0123456789ABCDEF";
+
+            while (n > 0) {
+                remainder = n % base;
+                stack.push(remainder)
+                n = Math.floor(n / base); //捨去後的整數
+            }
+
+            while (!stack.isEmpty()) {
+                baseString += digits[stack.pop()];
+            }
+            return baseString;
+        }
+        console.log(numberToBinary(100345, 16));
+    </script>
+</body>
+
+</html>
