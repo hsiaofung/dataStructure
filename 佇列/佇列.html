@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Queue() {
+            var items = [];
+            this.enqueue = (item) => {
+                items.push(item)
+            }
+            this.dequeue = () => {
+                return items.shift()
+            }
+            this.front = () => {
+                return items[0]
+            }
+            this.isEmpty = () => {
+                return items.length === 0
+            }
+            this.size = () => {
+                return items.length
+            }
+            this.print = () => {
+                console.log(items.toString())
+            }
+        }
+        var myQueue = new Queue();
+        myQueue.enqueue(1) //=>1,2,3,4,5,6
+        myQueue.enqueue(2) //=>1,2,3,4,5,6
+        myQueue.enqueue(3) //=>1,2,3,4,5,6
+        myQueue.enqueue(4) //=>1,2,3,4,5,6
+        myQueue.enqueue(5) //=>1,2,3,4,5,6
+        myQueue.enqueue(6) //=>1,2,3,4,5,6
+        console.log(myQueue.dequeue()) //=>1
+        console.log(myQueue.front()) //=>2
+        console.log(myQueue.isEmpty()) //false
+        console.log(myQueue.size()) //5
+        myQueue.print()
+    </script>
+</body>
+
+</html>
