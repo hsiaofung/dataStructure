@@ -46,6 +46,13 @@
       //新增: splice(位置(索引)，刪除幾個，添加到陣列的元素)
       numbers.splice(5, 0, 2, 3, 4, 5, 6);
       console.log(numbers); //[0, 1, 2, 3, 4, 2, 3, 4, 5, 6, 9, 10, 11, 12, undefined]
+      console.log(numbers.length); //16
+      //刪除某元素
+      delete numbers[3];
+      console.log(numbers); //[0, 1, 2, empty, 4, 2, 3, 4, 5, 6, 9, 10, 11, 12, undefined]
+      console.log(numbers.length); //16: 用delete長度不變。被刪除的元素會被空下來。
+      console.log(numbers[3]); //=>indefined:讀取不存在的元素會回傳undefined
+      console.log(numbers.toString()); //0,1,2,,4,2,3,4,5,6,8,9,10,11,12,
     </script>
   </body>
 </html>
